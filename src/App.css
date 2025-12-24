@@ -1,0 +1,115 @@
+.app-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Sidebar overlap handling usually done by margin-left which is in Header for header, 
+     but main content also needs it. */
+    margin-left: 0; /* Sidebar is fixed, but we need to offset content if we don't use grid */
+}
+
+/* Actually, let's fix the margin issue. 
+   Sidebar has width 260px. 
+*/
+.main-content {
+    margin-left: 260px; /* Offset for sidebar */
+    width: calc(100% - 260px);
+}
+
+.dashboard-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    font-size: 1rem;
+}
+
+.primary-btn {
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.6);
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.dashboard-charts-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-charts-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.activity-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-secondary);
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.activity-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.activity-text {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
