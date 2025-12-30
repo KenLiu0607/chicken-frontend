@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import KPICard from './components/KPICard';
 import SalesChart from './components/SalesChart';
+import MaiAgentChat from './components/MaiAgentChat';
 import { DollarSign, Users, ShoppingBag, TrendingUp } from 'lucide-react';
 import './App.css';
 
@@ -81,6 +82,7 @@ function App() {
           </div>
         </main>
       </div>
+      <MaiAgentChat />
     </div>
   );
 }
